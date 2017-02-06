@@ -1,0 +1,32 @@
+<div class="media" *ngIf="track">
+    <div class="media-left media-middle" *ngIf="track.album">
+        <a routerLink="/album/{{track.album.id}}">
+            <img src="{{track.album.artwork}}" alt="Album {{track.album.name}}" class="img-rounded" width="100" height="100">
+        </a>
+    </div>
+    <div *ngIf="!track.album">
+        <img src="assets/img/muzik.png" alt="Track" class="img-circle" width="70" height="70">
+    </div>
+    <div class="media-body">
+        <h4>
+            <i class="fa fa-music"></i> {{track.name}}
+        </h4>
+        <div *ngIf="track.artists">
+            <h4>By</h4>
+            <ul>
+                <li *ngFor="let artist of track.artists">
+                    <h5>
+                        <a routerLink="/artist/{{artist.id}} ">{{artist.name}}</a>
+                    </h5>
+                </li>
+            </ul>
+        </div>
+        <p>
+            <span><i class="fa fa-music"></i> #{{track.num}}</span>&nbsp;-&nbsp;
+            <span class="fa fa-lg fa-database" aria-hidden="true">&nbsp;{{track.disc}}</span>
+        </p>
+        <p>
+            <!--<app-player mode="button"></app-player>-->
+        </p>
+    </div>
+</div>

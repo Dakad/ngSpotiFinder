@@ -1,0 +1,24 @@
+<div class="well" (keyup)='controlPlayer($event)'>
+    <div class="row">
+        <div class="col-md-3">
+            <img src="assets/img/zik.png" alt="Album artwork" (click)="play()" class="img img-rounded" width="150px" height="150px">
+        </div>
+        <div class="player col-md-9">
+            <h4>#{{player.current.num}} - {{player.current.name}}</h4>
+            <nav>
+                <button class="control play" (click)="play()" *ngIf="player.isPaused">Play</button>
+                <button class="control pause" (click)="pause()" *ngIf="!player.isPaused">Pause</button>
+                <button class="control prev" (click)="previous()">Prev</button>
+                <button class="control next" (click)="next()">Next</button>
+                <label class="pull-right" for="loop">
+                  <input id="loop" type="checkbox" [checked]=player.isLooped /> Loop 2 Death
+                </label>
+            </nav>
+
+            <div class="progress progress-striped active">
+                <div class="progress-bar progress-bar-info" [style.width]='displayProgess()'></div>
+            </div>
+            <audio src="{{player.current.src}}"></audio>
+        </div>
+    </div>
+</div>

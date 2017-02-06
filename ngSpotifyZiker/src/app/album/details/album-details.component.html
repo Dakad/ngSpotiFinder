@@ -1,0 +1,45 @@
+<div id="album" *ngIf="currentAlbums">
+    <header class="album-header">
+
+        <div class="row">
+            <div class="col-md-4" *ngIf="currentAlbums.images">
+                <img src="{{currentAlbums.images[0].url}}" alt="" class="album-thumb img-rounded">
+                <div>
+                    <div class="label label-warning" *ngIf="currentAlbums.explicit">EXPLICIT CONTENT</div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <h3 ng-if="currentAlbums.artists.length > 0">
+                    <a routerLink="/artist/{{artist.id}}" *ngFor="let artist of currentAlbums.artists">{{artist.name}} </a>
+                </h3>
+                <h2>
+                    {{currentAlbums.name}}
+                    <small>
+                        <a href="{{currentAlbums.external_urls.spotify}}" target="_blank" class="btn btn-info btn-lg" title="View on Spotify">
+                            <i class="fa fa-spotify fa-2x"></i>
+                        </a>
+                    </small>
+
+                </h2>
+                <h5>Release Date : {{currentAlbums.release_date | date}}</h5>
+                <br>
+                <app-player #player [playlist]=tracks></app-player>
+            </div>
+        </div>
+    </header>
+
+    <div class="albums-tracks">
+        <h2>Albums Tracks</h2>
+        <div *ngFor="let track of currentAlbums.tracks.items">
+            <div class="well">
+                <h5>{{track.track_number}} - {{track.name}}
+                    <small class="pull-right">
+                        <button class="btn btn-primary" (click)="player.play(track.id)" target="_blank">Preview this track</button>
+                    </small>
+                </h5>
+            </div>
+
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,57 @@
+* {
+    background-color: #4c3850;
+    color: white;
+}
+
+nav {
+    width: auto;
+    margin: auto;
+    padding: 0;
+    padding-bottom: 20px;
+}
+
+nav button.control {
+    text-indent: -9999px;
+    width: 55px;
+    height: 50px;
+    border: 0;
+    padding: 10px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.img:hover {
+    cursor: pointer;
+}
+
+nav button.play {
+    background: url('assets/img/control_play.png') center no-repeat;
+}
+
+nav button.play:hover {
+    background: url('assets/img/control_play_hover.png') center no-repeat;
+}
+
+nav button.pause {
+    background: url('assets/img/control_pause.png') center no-repeat;
+}
+
+nav button.pause:hover {
+    background: url('assets/img/control_pause_hover.png') center no-repeat;
+}
+
+nav button.prev {
+    background: url('assets/img/control_start.png') center no-repeat;
+}
+
+nav button.prev:hover {
+    background: url('assets/img/control_start_hover.png') center no-repeat;
+}
+
+nav button.next {
+    background: url('assets/img/control_end.png') center no-repeat;
+}
+
+nav button.next:hover {
+    background: url('assets/img/control_end_hover.png') center no-repeat;
+}

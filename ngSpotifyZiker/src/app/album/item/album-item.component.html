@@ -1,0 +1,16 @@
+<div>
+    <div class="well album" *ngIf="album.artwork" [style.border]="album.explicit ? '1px solid red' : ''">
+        <img src="{{album.artwork}}" alt="" class="album-thumb img-thumbnail">
+        <h4>{{album.name}}</h4>
+        <h4>{{album.type}}</h4>
+        <div [ngSwitch]="album.type">
+            <span *ngSwitchCase="'single'" class="label label-primary">Single</span>
+            <span *ngSwitchCase="'compilation'" class="label success">COMPI</span>
+            <span *ngSwitchCase="'apparition'" class="label label-info">Appears ON</span>
+            <span *ngSwitchDefault class="label label-default">Album</span>
+        </div>
+        <p>
+            <a routerLink="/album/{{album.id}}" class="btn btn-primary btn-block">More details</a>
+        </p>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+<div>
+    <h3> <a routerLink="/artist/{{artist.id}}">{{artist.name}}</a> </h3>
+    <h5> Genres :
+        <small>
+          <label *ngFor="let genre of artist.genres "> {{genre}} </label>
+        </small>
+    </h5>
+
+</div>

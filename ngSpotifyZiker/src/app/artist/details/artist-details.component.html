@@ -1,0 +1,39 @@
+<div *ngIf="artist">
+    <div class="row">
+        <header class="artist-header">
+            <img class="artist-thumb img-circle" src="{{artist.image}}" alt="{{artist.name}} Profil">
+            <div>
+                <h1> {{artist.name}} </h1>
+
+                <h3 *ngIf="artist.genres.length > 0">
+                    <span class="label label-info" *ngFor="let genre of artist.genres"> {{genre}} </span>
+                </h3>
+            </div>
+        </header>
+    </div>
+
+
+    <!--<pre>{{topTracks | json}}</pre>-->
+    <div class="artist-top-tracks row page-header" *ngIf="artist.topTracks">
+        <h2 class=" page-header">Top tracks</h2>
+        <div class="row">
+            <div class="col-md-4" *ngFor="let top of artist.topTracks">
+                <div class="well">
+                    <app-track [track]="top"></app-track>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="artist-albums row">
+        <h2 class=" page-header">List of albums</h2>
+        <div class="row">
+            <div>
+                <div class="col-md-3" *ngFor="let album of artist.albums">
+                    <app-album-item [album]="album"></app-album-item>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

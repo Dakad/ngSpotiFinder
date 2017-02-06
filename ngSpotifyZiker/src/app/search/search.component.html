@@ -1,0 +1,44 @@
+<h1>Litte hunger for MuZik ?</h1>
+<div class="lead">Use my ngSpotifyZiker to ding into Spotify and get the better taste of joyfull muzik.</div>
+
+<form>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-1">
+                <select class="form-control" name="type" [(ngModel)]="search.type" id="select" (change)="searchMuzik()">
+                        <option disabled> Type</option>
+                        <option value=album>Album</option>
+                        <option value=artist selected> Artist</option>
+                        <option value=track>Song</option>
+                      </select>
+            </div>
+            <div class="col-md-11">
+                <input type="text" name="query" [(ngModel)]="search.query" (keyup)="searchMuzik()" autofocus class="form-control" placeholder="Browse for muzik . . . .">
+            </div>
+        </div>
+    </div>
+</form>
+
+<br>
+
+<div class="results" ng-if="search.result">
+    <div class="row">
+        <div *ngFor="let res of search.result">
+            <div class="col-md-4">
+                <div class="search-res well">
+                    <div [ngSwitch]="search.type">
+                        <div *ngSwitchCase="'album'">
+                            <app-album-item [album]=res></app-album-item>
+                        </div>
+                        <div *ngSwitchCase="'artist'">
+                            <app-artist-item [artist]=res></app-artist-item>
+                        </div>
+                        <div *ngSwitchCase="'track'">
+                            <app-track [track]=res></app-track>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
